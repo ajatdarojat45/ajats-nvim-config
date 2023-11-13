@@ -54,6 +54,12 @@ Check supported languages [here](https://github.com/nvim-treesitter/nvim-treesit
 
 Check extentions list [here](https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#implemented-coc-extensions)
 
+- Install MarkdownPreview
+
+```
+:call mkdp#util#install()
+```
+
 ## Usage
 
 ### Mappings
