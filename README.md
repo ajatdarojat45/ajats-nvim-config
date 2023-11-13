@@ -16,20 +16,9 @@
 
 - [nvim](https://neovim.io/)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [nodejs](https://nodejs.org/en)
 
 ### Installation
-
-- Install neovim
-
-```sh
-brew install neovim
-```
-
-- Install ripgrep
-
-```sh
-brew install ripgrep
-```
 
 - Clone this repo
 
