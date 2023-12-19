@@ -9,12 +9,12 @@ require("telescope").setup({
     },
     mappings = {
       i = {
-        ["<C-c>"] = actions.close,
-        ['<C-d>'] = actions.delete_buffer,
+        ["<S-q>"] = actions.close,
+        ['<S-d>'] = actions.delete_buffer,
       },
       n = {
-        ["<C-c>"] = actions.close,
-        ['<C-d>'] = actions.delete_buffer,
+        ["<S-q>"] = actions.close,
+        ['<S-d>'] = actions.delete_buffer,
       }
     }
   },

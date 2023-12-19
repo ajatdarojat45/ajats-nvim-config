@@ -114,7 +114,7 @@ nnoremap <S-h> :bprevious<CR>
 nnoremap <S-l> :bnext<CR>
 nnoremap <S-k> :bfirst<CR>
 nnoremap <S-j> :blast<CR>
-nnoremap <S-d> :bdelete<CR>
+nnoremap <S-r> :bdelete<CR>
 
 " markdown preview
 nnoremap mp :MarkdownPreview<CR>
