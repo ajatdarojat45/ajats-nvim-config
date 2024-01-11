@@ -21,7 +21,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'windwp/nvim-ts-autotag'
 "Telescope
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 " prettier
 Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --omit=dev' }
 Plug 'dense-analysis/ale'
