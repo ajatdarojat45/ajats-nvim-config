@@ -9,6 +9,15 @@
 
 ## Preview
 
+-   Preview 1
+    ![preview-1](./assets/editor.jpg "preview-1")
+
+-   Preview 2
+    ![preview-2](./assets/explorer.jpg "preview-2")
+
+-   Preview 3
+    ![preview-3](./assets/finder.jpg "preview-3")
+
 ## Getting Started
 
 ### Required dependencies
