@@ -26,6 +26,8 @@
 -   [ripgrep](https://github.com/BurntSushi/ripgrep)
 -   [nodejs](https://nodejs.org/en)
 
+> This config requires a [patched](https://www.nerdfonts.com/) font to display file icons. Your terminal emulator must be configured to use that font, usually [Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip)
+
 ### Installation
 
 #### Clone this repo
