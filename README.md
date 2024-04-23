@@ -31,7 +31,7 @@
 #### Clone this repo
 
 ```sh
-git clone git@github.com:ajatdarojat45/nvim.git ~/.config/nvim
+git clone git@github.com:ajatdarojat45/ajats-nvim-config.git ~/.config/nvim
 ```
 
 #### Install vim-plug in your machine
