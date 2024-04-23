@@ -31,7 +31,7 @@
 -   Clone this repo
 
 ```sh
-git clone git@github.com:ajatdarojat45/nvim.git ~/.config
+git clone git@github.com:ajatdarojat45/nvim.git ~/.config/nvim
 ```
 
 -   Install vim-plug in your machine
@@ -79,7 +79,7 @@ Check extentions list [here](https://github.com/neoclide/coc.nvim/wiki/Using-coc
 
 | Mappings        | Action                                     | State       |
 | --------------- | ------------------------------------------ | ----------- |
-| `i`             | Enter to insert Mode                       | Normal Mode |
+| `i`             | Enter to insert mode                       | Normal Mode |
 | `leader` + `s`  | Run `Prettier` and save changes            | Normal Mode |
 | `leader` + `q`  | Quit                                       | Normal Mode |
 | `jj`            | Exit insert mode quickly                   | Insert Mode |
