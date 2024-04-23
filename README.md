@@ -36,7 +36,7 @@ git clone git@github.com:ajatdarojat45/nvim.git ~/.config/nvim
 
 #### Install vim-plug in your machine
 
-    > vim-plug is a minimalist Vim plugin manager.
+> vim-plug is a minimalist Vim plugin manager.
 
 You can follow this link: https://github.com/junegunn/vim-plug
 
