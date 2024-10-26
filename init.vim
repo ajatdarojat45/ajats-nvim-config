@@ -16,10 +16,8 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'onsails/lspkind.nvim'
 
 " Code Formatting dan Linting
-Plug 'prettier/vim-prettier', { 
-      \ 'do': 'yarn install --frozen-lockfile --production',
-      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html', 'php', 'jsx', 'tsx']
-      \ }
+Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'MunifTanjim/prettier.nvim'
 
 " Navigasi dan Pencarian
 Plug 'nvim-lua/plenary.nvim'
@@ -71,6 +69,9 @@ lua require('nvim_lspconfig')
 lua require("nvim_comment")
 lua require("todo_comment")
 lua require("nvim_alpha")
+lua require("ts_autotag")
+lua require("null_ls")
+lua require("nvim_prettier")
 
 "airline
 "let g:airline_theme='base16_snazzy' INDENTLINE
