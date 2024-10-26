@@ -4,7 +4,6 @@
 
 -   [Preview](#preview)
 -   [Getting Started](#getting-started)
--   [Installation](#installation)
 -   [Usage](#usage)
 
 ## Preview
