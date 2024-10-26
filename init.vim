@@ -13,6 +13,7 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'  
 Plug 'saadparwaiz1/cmp_luasnip' 
 Plug 'L3MON4D3/LuaSnip' 
+Plug 'onsails/lspkind.nvim'
 
 " Code Formatting dan Linting
 Plug 'prettier/vim-prettier', { 
