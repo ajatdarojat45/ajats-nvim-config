@@ -117,7 +117,7 @@ function! MyCustomFoldText()
 
   return l:line . " " . l:emoji . ' ~ ' . l:fold_size . ' lines folded '
 endfunction
-set foldtext=MyCustomFoldText()
+"set foldtext=MyCustomFoldText()
 
 "prettier
 "let g:prettier#config#tab_width = 2

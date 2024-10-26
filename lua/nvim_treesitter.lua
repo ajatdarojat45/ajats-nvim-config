@@ -13,11 +13,6 @@ require'nvim-treesitter.configs'.setup {
     "sql", "ruby", "cpp", "c"
   },
 
-  -- Auto close tags
-  autotag = {
-    enable = true,
-  },
-
   -- Rainbow brackets untuk visualisasi tanda kurung
   rainbow = {
     enable = true,
