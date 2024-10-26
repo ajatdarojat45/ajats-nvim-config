@@ -1,54 +1,76 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'sheerun/vim-polyglot'
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
-Plug 'valloric/vim-indent-guides'
-Plug 'tpope/vim-surround'
-Plug 'wakatime/vim-wakatime'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'raimondi/delimitmate'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
-Plug 'lukas-reineke/indent-blankline.nvim'
+
+" Syntax Highlighting dan Parsing
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'windwp/nvim-ts-autotag'
-"Telescope
+
+" Autocomplete & LSP
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'    
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer' 
+Plug 'hrsh7th/cmp-path'  
+Plug 'saadparwaiz1/cmp_luasnip' 
+Plug 'L3MON4D3/LuaSnip' 
+
+" Code Formatting dan Linting
+Plug 'prettier/vim-prettier', { 
+      \ 'do': 'yarn install --frozen-lockfile --production',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html', 'php', 'jsx', 'tsx']
+      \ }
+
+" Navigasi dan Pencarian
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
-" prettier
-Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --omit=dev' }
-Plug 'dense-analysis/ale'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'numToStr/Comment.nvim'
 
-"Plug 'connorholyday/vim-snazzy'
-"Plug 'fladson/vim-kitty'
-"Plug 'vim-airline/vim-airline'
-"Plug 'yggdroot/indentline'
-"Plug 'gmoe/vim-espresso'
-"Plug 'sainnhe/everforest'
-"Plug 'joshdick/onedark.vim'
-"Plug 'dracula/vim'
-"Plug 'wfxr/minimap.vim'
+" Manajemen Buffer & Tab
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'nvim-tree/nvim-tree.lua'
+"Plug 'mhinz/vim-startify'
+
+" Git Integration
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Productivity Enhancements
+Plug 'wakatime/vim-wakatime'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'numToStr/Comment.nvim'
+Plug 'folke/todo-comments.nvim'
+
+" UI & Tampilan
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'valloric/vim-indent-guides'
+Plug 'goolord/alpha-nvim'
+
+" Bracket & Delimiter Management
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-surround'
+Plug 'raimondi/delimitmate'
+
 call plug#end()
 
 " require lua script
 lua require('nvimtree')
 lua require('override')
-lua require('coc')
+"lua require('coc')
 lua require('lua_line')
 lua require('buffer_line')
 lua require('indentblankline')
 lua require('nvim_treesitter')
 lua require('nvim_telescope')
-lua require('nvim_comment')
+lua require('nvim_cmp')
+lua require('nvim_lspconfig') 
+lua require("nvim_comment")
+lua require("todo_comment")
+lua require("nvim_alpha")
+
 "airline
 "let g:airline_theme='base16_snazzy' INDENTLINE
 "let g:indentLine_char = '┊'
@@ -73,6 +95,9 @@ set clipboard=unnamed
 colorscheme tokyonight-moon
 
 "vim
+nnoremap <leader>bd :%bd<CR>
+
+" delete all buffers
 nnoremap <leader>q :q<CR>
 
 " fold
@@ -131,32 +156,9 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" ale
-let g:ale_fixers = {
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\   'html': ['prettier'],
-\  'css': ['prettier'],
-\  'scss': ['prettier'],
-\  'json': ['prettier'],
-\  'yaml': ['prettier'],
-\  'markdown': ['prettier'],
-\  'vue': ['prettier'],
-\  'svelte': ['prettier'],
-\  'javascript.jsx': ['prettier'],
-\  'typescript.tsx': ['prettier'],
-\  'javascriptreact': ['prettier'],
-\  'typescriptreact': ['prettier'],
-\  'php': ['prettier'],
-\}
-
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-let g:ale_fix_on_save = 1
-
 " tmux navigator
-let g:tmux_navigator_no_mappings = 1
-noremap <silent> <C-j> :TmuxNavigateDown<CR>
-noremap <silent> <C-k> :TmuxNavigateUp<CR>
-noremap <silent> <C-h> :TmuxNavigateLeft<CR>
-noremap <silent> <C-l> :TmuxNavigateRight<CR>
+"let g:tmux_navigator_no_mappings = 1
+"noremap <silent> <C-j> :TmuxNavigateDown<CR>
+"noremap <silent> <C-k> :TmuxNavigateUp<CR>
+"noremap <silent> <C-h> :TmuxNavigateLeft<CR>
+"noremap <silent> <C-l> :TmuxNavigateRight<CR>
