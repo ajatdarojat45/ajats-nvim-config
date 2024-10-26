@@ -117,7 +117,6 @@ function! MyCustomFoldText()
 
   return l:line . " " . l:emoji . ' ~ ' . l:fold_size . ' lines folded '
 endfunction
-
 set foldtext=MyCustomFoldText()
 
 "prettier
