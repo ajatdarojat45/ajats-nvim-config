@@ -118,11 +118,6 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     }
 )
 
--- Navigasi Diagnostics
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap=true, silent=true })
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap=true, silent=true })
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap=true, silent=true })
-
 vim.opt.foldmethod = 'expr'  -- Gunakan metode folding berdasarkan ekspresi
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'  -- Gunakan foldexpr dari nvim-treesitter
 vim.opt.foldlevel = 99        -- Tetapkan level folding awal (99 untuk menampilkan semua)

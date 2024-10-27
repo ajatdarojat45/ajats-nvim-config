@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Syntax Highlighting dan Parsing
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'windwp/nvim-ts-autotag'
+Plug 'mustache/vim-mustache-handlebars'
 
 " Autocomplete & LSP
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}

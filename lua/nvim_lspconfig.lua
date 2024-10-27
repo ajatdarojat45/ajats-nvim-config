@@ -105,3 +105,13 @@ cmp.setup({
         format = lspkind.cmp_format({ with_text = true, maxwidth = 50 }),
     },
 })
+
+-- Automatically show documentation on CursorHold in Insert mode
+vim.api.nvim_create_autocmd("CursorHoldI", {
+    pattern = "*",
+    callback = function()
+        vim.lsp.buf.hover()
+    end,
+})
+
+vim.o.updatetime = 300
