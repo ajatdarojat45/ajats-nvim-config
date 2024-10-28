@@ -24,6 +24,7 @@ Plug 'MunifTanjim/prettier.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
 
 " Manajemen Buffer & Tab
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
@@ -73,6 +74,7 @@ lua require("nvim_alpha")
 lua require("ts_autotag")
 lua require("null_ls")
 lua require("nvim_prettier")
+lua require("nvim_harpoon")
 
 "airline
 "let g:airline_theme='base16_snazzy' INDENTLINE
