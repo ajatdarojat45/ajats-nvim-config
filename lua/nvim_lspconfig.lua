@@ -106,11 +106,19 @@ cmp.setup({
     },
 })
 
+
+
 -- Automatically show documentation on CursorHold in Insert mode
 vim.api.nvim_create_autocmd("CursorHoldI", {
     pattern = "*",
     callback = function()
-        vim.lsp.buf.hover()
+        local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+        for _, client in pairs(clients) do
+            if client.supports_method("textDocument/hover") then
+                vim.lsp.buf.hover()
+                break
+            end
+        end
     end,
 })
 
