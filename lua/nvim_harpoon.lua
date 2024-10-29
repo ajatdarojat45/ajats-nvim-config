@@ -8,7 +8,7 @@ local finder = function()
   local paths = {}
 
   for _, item in ipairs(harpoon_files.items) do
-    table.insert(paths, item.value)
+   table.insert(paths, item.value)
   end
 
   return require("telescope.finders").new_table({
@@ -22,6 +22,7 @@ require("telescope.pickers").new({}, {
   previewer = conf.file_previewer({}),
   sorter = conf.generic_sorter({}),
   layout_strategy = "center",
+  sorting_strategy = "ascending",
   layout_config = {
     prompt_position = "top",
   },
