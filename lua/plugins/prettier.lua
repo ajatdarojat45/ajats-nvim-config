@@ -16,6 +16,7 @@ prettier.setup({
     "typescriptreact",
     "yaml",
     "jsx",
-    "tsx",
+    "go",
+    "lua",
   },
 })

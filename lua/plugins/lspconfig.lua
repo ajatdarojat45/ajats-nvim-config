@@ -37,8 +37,8 @@ lspconfig.intelephense.setup {
     settings = {
         intelephense = {
             files = {
-                maxSize = 5000000;
-            };
+                maxSize = 5000000,
+            },
         }
     }
 }
@@ -56,6 +56,21 @@ lspconfig.pyright.setup {
     capabilities = capabilities,
     on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern(".git", "pyproject.toml", "setup.py"),
+}
+
+-- Golang config
+lspconfig.gopls.setup {
+    cmd = { "gopls", "serve" },
+    filetypes = { "go", "gomod" },
+    root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
 }
 
 -- Konfigurasi Diagnostics agar lebih informatif
@@ -106,20 +121,3 @@ cmp.setup({
     },
 })
 
-
-
--- Automatically show documentation on CursorHold in Insert mode
-vim.api.nvim_create_autocmd("CursorHoldI", {
-    pattern = "*",
-    callback = function()
-        local clients = vim.lsp.get_active_clients({ bufnr = 0 })
-        for _, client in pairs(clients) do
-            if client.supports_method("textDocument/hover") then
-                vim.lsp.buf.hover()
-                break
-            end
-        end
-    end,
-})
-
-vim.o.updatetime = 300

@@ -1,19 +1,24 @@
 -- Konfigurasi nvim-treesitter
 require'nvim-treesitter.configs'.setup {
-  -- Syntax highlighting
+  ensure_installed = {"bash", "css", "dockerfile", "editorconfig", "gitignore", "go", "html", "http", "java", "javascript", "json", "lua", "nginx", "php", "python", "regex", "sql", "tmux", "typescript", "vim", "yaml"}, 
+  sync_install = true,
+  auto_install = true,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-
-  -- Parsers yang akan di-install otomatis
-  ensure_installed = {
-    "html", "css", "javascript", "typescript", "tsx", "php",
-    "bash", "lua", "python", "rust", "go", "java", "json", "yaml", "markdown",
-    "sql", "ruby", "cpp", "c"
+  indent = {
+    enable = true,
   },
-
-  -- Rainbow brackets untuk visualisasi tanda kurung
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn", -- Tombol untuk mulai pemilihan
+      node_incremental = "grn", -- Tombol untuk meningkatkan pemilihan node
+      node_decremental = "grm", -- Tombol untuk mengurangi pemilihan node
+      scope_incremental = "grc", -- Tombol untuk meningkatkan pemilihan scope
+    },
+  },
   rainbow = {
     enable = true,
     extended_mode = true, -- Aktifkan untuk lebih banyak tipe kode
@@ -22,13 +27,6 @@ require'nvim-treesitter.configs'.setup {
       "#ff6188", "#fc9867", "#ffd866", "#a9dc76", "#78dce8", "#ab9df2"
     },
   },
-
-  -- Auto-indentasi
-  indent = {
-    enable = true,
-  },
-
-  -- Refactoring tools
   refactor = {
     highlight_definitions = { enable = true },
     highlight_current_scope = { enable = true },
@@ -49,18 +47,6 @@ require'nvim-treesitter.configs'.setup {
       },
     },
   },
-
-  -- Incremental selection
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn", -- Tombol untuk mulai pemilihan
-      node_incremental = "grn", -- Tombol untuk meningkatkan pemilihan node
-      node_decremental = "grm", -- Tombol untuk mengurangi pemilihan node
-      scope_incremental = "grc", -- Tombol untuk meningkatkan pemilihan scope
-    },
-  },
-
   -- Text objects
   textobjects = {
     select = {
@@ -118,7 +104,9 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(
     }
 )
 
-vim.opt.foldmethod = 'expr'  -- Gunakan metode folding berdasarkan ekspresi
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'  -- Gunakan foldexpr dari nvim-treesitter
-vim.opt.foldlevel = 99        -- Tetapkan level folding awal (99 untuk menampilkan semua)
+--vim.opt.foldmethod = 'expr'  -- Gunakan metode folding berdasarkan ekspresi
+--vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'  -- Gunakan foldexpr dari nvim-treesitter
+vim.wo.foldmethod = 'expr'
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldlevel = 99
 

@@ -41,7 +41,7 @@ require("telescope.pickers").new({}, {
 }):find()
 end
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<C-p>", function() harpoon:list():add() end)
 vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end,
     { desc = "Open harpoon window" })
 
