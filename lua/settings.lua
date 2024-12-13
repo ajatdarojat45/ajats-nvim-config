@@ -1,7 +1,6 @@
 local opt = vim.opt
 local g = vim.g
 local api = vim.api
-local cmd = vim.cmd
 
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.confirm = true            -- Confirm to save changes before exiting modified buffer
