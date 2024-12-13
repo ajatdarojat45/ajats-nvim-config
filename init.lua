@@ -1,5 +1,6 @@
 -- Load plugins
 require('plug')
+
 -- Load general settings
 require('settings')
 
@@ -22,3 +23,4 @@ require("plugins.telescope")
 require("plugins.todo-comments")
 require("plugins.vscode")
 require("plugins.tokyonight")
+require("plugins.leap")

@@ -1,18 +1,15 @@
--- disable netrw at the very start of your init.lua (strongly advised)
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
+local api = vim.api
 
--- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
- --   adaptive_size = true,
+    --   adaptive_size = true,
     width = 30,
---    mappings = {
- --     list = {
-  --      { key = "u", action = "dir_up" },
-   --   },
- --   },
+    --    mappings = {
+    --     list = {
+    --      { key = "u", action = "dir_up" },
+    --   },
+    --   },
   },
   renderer = {
     group_empty = true,
@@ -25,3 +22,8 @@ require("nvim-tree").setup({
   },
 })
 
+-- nvim-tree
+api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<leader>er', ':NvimTreeRefresh<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<leader>ee', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<leader>ef', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })

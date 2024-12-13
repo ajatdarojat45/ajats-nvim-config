@@ -1,9 +1,10 @@
-vim.opt.termguicolors = true
-require("bufferline").setup{
+local api = vim.api
+
+require("bufferline").setup {
   options = {
     mode = "buffers",
     indicator = {
-      icon = '▎', 
+      icon = '▎',
       style = 'underline',
     },
     close_icon = '✗',
@@ -22,3 +23,11 @@ require("bufferline").setup{
   }
 }
 
+
+-- bufferline
+api.nvim_set_keymap('n', '<S-h>', ':bprevious<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<S-l>', ':bnext<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<S-k>', ':bfirst<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<S-j>', ':blast<CR>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<S-r>', ':bdelete<CR>', { noremap = true, silent = true })
+api.nvim_set_keymap('n', '<S-r>', ':lua vim.api.nvim_buf_delete(0, {})<CR>', { noremap = true, silent = true })

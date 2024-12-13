@@ -29,6 +29,7 @@ vim.cmd([[
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
+  Plug 'ggandor/leap.nvim'
 
   " Manajemen Buffer & Tab
   Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
@@ -43,7 +44,6 @@ vim.cmd([[
   " Productivity Enhancements
   Plug 'wakatime/vim-wakatime'
   Plug 'terryma/vim-multiple-cursors'
-  "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 	Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': 'markdown' }
   Plug 'numToStr/Comment.nvim'
   Plug 'folke/todo-comments.nvim'
@@ -60,7 +60,6 @@ vim.cmd([[
   Plug 'Mofiqul/vscode.nvim'
 
   " Bracket & Delimiter Management
-  "Plug 'kien/rainbow_parentheses.vim'
   Plug 'tpope/vim-surround'
   Plug 'raimondi/delimitmate'
 

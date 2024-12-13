@@ -1,2 +1,6 @@
+local cmd = vim.cmd
+
 require("tokyonight").setup()
-vim.cmd("colorscheme tokyonight-moon")
+
+-- colorscheme
+cmd("colorscheme tokyonight-moon")

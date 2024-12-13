@@ -1,6 +1,17 @@
--- Add cmp_nvim_lsp capabilities settings to lspconfig
--- This should be executed before you configure any language server
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 local lspconfig_defaults = require('lspconfig').util.default_config
+local cmp = require('cmp')
+local keymap = vim.keymap
+local api = vim.api
+
+require("mason-lspconfig").setup_handlers {
+  function(server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup {}
+  end,
+}
+
 lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   'force',
   lspconfig_defaults.capabilities,
@@ -9,38 +20,25 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 
 -- This is where you enable features that only work
 -- if there is a language server active in the file
-vim.api.nvim_create_autocmd('LspAttach', {
+api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
     local opts = { buffer = event.buf }
 
-    vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-    vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
-    vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
-    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
-    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', 'ch', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
-    vim.keymap.set('n', 'cr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set({ 'n', 'x' }, 'cf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
-    vim.keymap.set('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+    keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+    keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+    keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+    keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+    keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+    keymap.set('n', 'ch', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+    keymap.set('n', 'cr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    keymap.set({ 'n', 'x' }, 'cf', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    keymap.set('n', 'ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end,
 })
 
-require("mason").setup()
-require("mason-lspconfig").setup()
-
-require("mason-lspconfig").setup_handlers {
-  function(server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {}
-  end,
-}
-
----
 -- Autocompletion config
----
-local cmp = require('cmp')
-
 cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
@@ -62,3 +60,7 @@ cmp.setup({
     end,
   },
 })
+
+-- lspconfig
+--vim.api.nvim_set_keymap('n', '<leader>d', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
+keymap.set('n', '<leader>d', vim.lsp.buf.hover, { silent = true, noremap = true })
