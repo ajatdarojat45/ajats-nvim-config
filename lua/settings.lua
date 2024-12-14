@@ -28,6 +28,7 @@ opt.wrap = false          -- Disable line wrap
 opt.signcolumn = "yes"
 opt.guicursor = "a:block"
 opt.mouse = ""
+opt.directory = '/tmp'
 
 -- Fix markdown indentation settings
 g.markdown_recommended_style = 0
