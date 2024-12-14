@@ -7,7 +7,6 @@ vim.cmd([[
   Plug 'mustache/vim-mustache-handlebars'
 
   " Autocomplete & LSP
-  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -29,12 +28,11 @@ vim.cmd([[
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.5' }
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'ThePrimeagen/harpoon', { 'branch': 'harpoon2' }
-  Plug 'ggandor/leap.nvim'
+  Plug 'folke/flash.nvim'
 
   " Manajemen Buffer & Tab
   Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
   Plug 'nvim-tree/nvim-tree.lua'
-  "Plug 'mhinz/vim-startify'
 
   " Git Integration
   Plug 'tpope/vim-fugitive'
