@@ -30,6 +30,16 @@ opt.guicursor = "a:block"
 opt.mouse = ""
 opt.directory = '/tmp'
 
+-- Enable folding
+opt.foldenable = true                       -- Aktifkan folding
+opt.foldmethod = 'expr'                     -- Gunakan metode expr untuk folding
+opt.foldexpr = 'nvim_treesitter#foldexpr()' -- Gunakan Treesitter untuk folding
+
+-- Default settings
+opt.foldlevel = 99      -- Buka semua fold secara default
+opt.foldlevelstart = 99 -- Mulai dengan semua fold terbuka
+opt.foldnestmax = 3     -- Maksimal nesting fold
+
 -- Fix markdown indentation settings
 g.markdown_recommended_style = 0
 
@@ -91,6 +101,22 @@ api.nvim_set_keymap('n', '<S-k>', ':bfirst<CR>', { noremap = true, silent = true
 api.nvim_set_keymap('n', '<S-j>', ':blast<CR>', { noremap = true, silent = true })                              -- Go to last buffer
 --vim.api.nvim_set_keymap('n', '<S-r>', ':bdelete<CR>', { noremap = true, silent = true })
 api.nvim_set_keymap('n', '<S-r>', ':lua vim.api.nvim_buf_delete(0, {})<CR>', { noremap = true, silent = true }) -- Remove buffer
+
+-- Pencarian yang Lebih Cepat
+api.nvim_set_keymap('n', '<leader>/', ':noh<CR>', { noremap = true, silent = true }) -- Hapus highlight pencarian
+api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true })            -- Pencarian berikutnya dan posisikan di tengah
+api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true })            -- Pencarian sebelumnya dan posisikan di tengah
+
+-- Pindah Ke Awal/Akhir Baris
+api.nvim_set_keymap('n', 'H', '^', { noremap = true, silent = true })  -- Pindah ke awal baris
+api.nvim_set_keymap('n', 'L', 'g_', { noremap = true, silent = true }) -- Pindah ke akhir baris
+
+-- Fold
+api.nvim_set_keymap('n', 'zc', 'zc', { noremap = true, silent = true }) -- Tutup fold
+api.nvim_set_keymap('n', 'zo', 'zo', { noremap = true, silent = true }) -- Buka fold
+api.nvim_set_keymap('n', 'zM', 'zM', { noremap = true, silent = true }) -- Tutup semua fold
+api.nvim_set_keymap('n', 'zR', 'zR', { noremap = true, silent = true }) -- Buka semua fold
+api.nvim_set_keymap('n', 'za', 'za', { noremap = true, silent = true }) -- Toggle fold
 
 -- Markdown Preview
 api.nvim_set_keymap('n', 'mp', ':MarkdownPreview<CR>', { noremap = true, silent = true })
