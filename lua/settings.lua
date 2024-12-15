@@ -29,6 +29,7 @@ opt.signcolumn = "yes"
 opt.guicursor = "a:block"
 opt.mouse = ""
 opt.directory = '/tmp'
+opt.swapfile = false
 
 -- Enable folding
 opt.foldenable = true                       -- Aktifkan folding
@@ -108,8 +109,8 @@ api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true })       
 api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true })            -- Pencarian sebelumnya dan posisikan di tengah
 
 -- Pindah Ke Awal/Akhir Baris
-api.nvim_set_keymap('n', 'H', '^', { noremap = true, silent = true })  -- Pindah ke awal baris
-api.nvim_set_keymap('n', 'L', 'g_', { noremap = true, silent = true }) -- Pindah ke akhir baris
+api.nvim_set_keymap('n', '<leader>h', '^', { noremap = true, silent = true })  -- Pindah ke awal baris
+api.nvim_set_keymap('n', '<leader>l', 'g_', { noremap = true, silent = true }) -- Pindah ke akhir baris
 
 -- Fold
 api.nvim_set_keymap('n', 'zc', 'zc', { noremap = true, silent = true }) -- Tutup fold

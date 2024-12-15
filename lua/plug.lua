@@ -58,7 +58,6 @@ vim.cmd([[
   Plug 'Mofiqul/vscode.nvim'
 
   " Bracket & Delimiter Management
-  Plug 'tpope/vim-surround'
   Plug 'raimondi/delimitmate'
 
   call plug#end()
