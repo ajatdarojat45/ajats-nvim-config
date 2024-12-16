@@ -59,6 +59,13 @@ api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true, silent = true })      
 api.nvim_set_keymap('n', 'o', 'o<Esc>', { noremap = true, silent = true })            -- Open a new line below
 api.nvim_set_keymap('n', 'O', 'O<Esc>', { noremap = true, silent = true })            -- Open a new line above
 
+-- Insert 
+local opts = { noremap = true, silent = true }
+api.nvim_set_keymap("n", "is", "I", opts) -- insert in the begining of line
+api.nvim_set_keymap("n", "ie", "A", opts) -- insert in the end of line
+api.nvim_set_keymap("n", "in", "a", opts) -- insert in the next cursor
+api.nvim_set_keymap("n", "iw", "ea", opts) -- insert in the next word
+
 -- Delete
 api.nvim_set_keymap('n', '<leader>dd', ':%d<CR>', { noremap = true, silent = true }) -- Delete whole file
 api.nvim_set_keymap('n', 'D', '0d$', { noremap = true, silent = true })              -- Delete whole line
@@ -76,14 +83,13 @@ api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true }) -- Unind
 api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true }) -- Indent selected text
 
 -- Save and Quit
-api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })    -- Save file
-api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })    -- Quit file
-api.nvim_set_keymap('n', '<leader>wq', ':wq<CR>', { noremap = true, silent = true })  -- Save and quit
-api.nvim_set_keymap('n', '<leader>qq', ':qa!<CR>', { noremap = true, silent = true }) -- Quit all
-api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>',
-  { noremap = true, silent = true })                                                  -- Format file
-api.nvim_set_keymap('n', '<leader>s', '<cmd>lua vim.lsp.buf.format()<CR> | :w<CR>',
-  { noremap = true, silent = true })                                                  -- Format and save file
+api.nvim_set_keymap('n', '<leader>w', ':w<CR>', { noremap = true, silent = true })                            -- Save file
+api.nvim_set_keymap('n', '<leader>q', ':q<CR>', { noremap = true, silent = true })                            -- Quit file
+api.nvim_set_keymap('n', '<leader>wq', ':wq<CR>', { noremap = true, silent = true })                          -- Save and quit
+api.nvim_set_keymap('n', '<leader>qq', ':qa!<CR>', { noremap = true, silent = true })                         -- Quit all
+api.nvim_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>', { noremap = true, silent = true }) -- Format file
+-- api.nvim_set_keymap('n', '<leader>s', '<cmd>lua vim.lsp.buf.format()<CR> | :w<CR>', { noremap = true, silent = true }) -- Format and save using lsp                                                  -- Format and save file
+api.nvim_set_keymap('n', '<leader>s', ':lua vim.cmd("Prettier") vim.cmd("w")<CR>', { noremap = true, silent = true })
 
 -- Search
 api.nvim_set_keymap('n', '<leader>/', '/<CR>', { noremap = true, silent = false }) -- Start forward search
