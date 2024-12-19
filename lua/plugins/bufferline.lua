@@ -1,5 +1,3 @@
-local api = vim.api
-
 require("bufferline").setup {
   options = {
     mode = "buffers",
